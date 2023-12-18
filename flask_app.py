@@ -81,7 +81,7 @@ def index():
     if not current_user.is_authenticated:
         return redirect(url_for("index"))
 
-    attendance = Attendance(office=request.form["offices"], employee=current_user)
+    attendance_record = Attendance_Records(office=request.form["office"], employee=current_user)
     db.session.add(attendance_record)
     db.session.commit()
     return redirect(url_for("index"))
