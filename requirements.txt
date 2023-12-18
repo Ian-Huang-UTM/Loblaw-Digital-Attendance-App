@@ -1,3 +1,4 @@
+alembic==1.7.7
 cachetools==4.2.4
 certifi==2023.11.17
 charset-normalizer==2.0.12
@@ -5,6 +6,7 @@ click==6.7
 dataclasses==0.8
 Flask==0.12.2
 Flask-Login==0.5.0
+Flask-Migrate==4.0.1
 Flask-SQLAlchemy==2.3.2
 google-api-core==2.8.2
 google-auth==2.22.0
@@ -18,8 +20,10 @@ grpcio==1.48.2
 grpcio-status==1.48.2
 idna==3.6
 importlib-metadata==4.8.3
+importlib-resources==5.4.0
 itsdangerous==0.24
 Jinja2==2.9.6
+Mako==1.1.6
 MarkupSafe==1.1.0
 mysql-connector-python==8.0.29
 numpy==1.19.5

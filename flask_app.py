@@ -75,7 +75,7 @@ class Attendance_Records(db.Model):
 def index():
     if request.method == "GET":
         return render_template(
-            "main_page.html", attendance_records=Attendance_Record.query.all()
+            "main_page.html", attendance_records=Attendance_Records.query.all()
         )
 
     if not current_user.is_authenticated:
