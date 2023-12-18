@@ -10,28 +10,27 @@
       <script id="__ada" data-handle="loblaws-og" src="https://static.ada.support/embed2.js"></script>
       <link rel="icon" href="https://images.ctfassets.net/y9kx4mbdq4n2/Ww7BEm8vUHB8qt9StdCH2/22974a248cbed4dba92e8608f196c334/Favicon_White_Bg_2x.png?fm=png" type="image/x-icon">
       <style>
-        body {
-        font-family: 'Helvetica LT W05 Bold', 'Helvetica', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-image: url('https://finlaysonpractice.ca/wp-content/uploads/2017/05/99AtlanticAve_4thFl_040.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 100vh; /* Ensure the background covers the entire viewport height */
-        }
-        .row div {
-    color: #fff; /* Set the desired text color */
-}
-        .form-group label {
-        font-family: 'Helvetica LT W05 Bold', 'Helvetica', sans-serif;
-        font-size: 1.5em;
-        font-weight: bold;
-        color: #fff; /* Set the desired text color */
-        }
+         body {
+         font-family: 'Helvetica LT W05 Bold', 'Helvetica', sans-serif;
+         margin: 0;
+         padding: 0;
+         background-image: url('https://finlaysonpractice.ca/wp-content/uploads/2017/05/99AtlanticAve_4thFl_040.jpg');
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         height: 100vh; /* Ensure the background covers the entire viewport height */
+         }
+         .row div {
+         color: #fff; /* Set the desired text color */
+         }
+         .form-group label {
+         font-family: 'Helvetica LT W05 Bold', 'Helvetica', sans-serif;
+         font-size: 1.5em;
+         font-weight: bold;
+         color: #a5e2c8; /* Set the desired text color */
+         }
          .container {
          text-align: center;
-
          }
          .h1 {
          display: block;
@@ -56,9 +55,9 @@
          }
          .form-group h2 {
          font-family: 'Helvetica LT W05 Bold', 'Helvetica', sans-serif;
-        font-size: 1.5em;
-        font-weight: bold;
-        color: #fff; /* Set the desired text color */
+         font-size: 1.5em;
+         font-weight: bold;
+         color: #ffb671; /* Set the desired text color */
          }
          .row button {
          line-height: 1.5882352941;
@@ -128,24 +127,22 @@
             </ul>
          </div>
       </nav>
-
-
       <div class="container">
          {% if current_user.is_authenticated %}
          <div class="row">
-        <form action="." method="POST">
-            <div class="form-group">
-                <h2>Office Selection</h2>
-                <input type="radio" name="office" value="Bathurst">
-                <label for="Bathurst">Bathurst</label>
-                <input type="radio" name="office" value="PCC">
-                <label for="PCC">PCC</label>
-                <input type="radio" name="office" value="Consumers Rd">
-                <label for="Consumers Rd">Consumers Rd</label>
-            </div>
-            <button type="submit" class="btn btn-success">Check-in</button>
-        </form>
-    </div>
+            <form action="." method="POST">
+               <div class="form-group">
+                  <h2>Office Selection</h2>
+                  <input type="radio" name="office" value="Bathurst">
+                  <label for="Bathurst">Bathurst</label>
+                  <input type="radio" name="office" value="PCC">
+                  <label for="PCC">PCC</label>
+                  <input type="radio" name="office" value="Consumers Rd">
+                  <label for="Consumers Rd">Consumers Rd</label>
+               </div>
+               <button type="submit" class="btn btn-success">Check-in</button>
+            </form>
+         </div>
          {% endif %}
          <!--{% for attendance_record in attendance_records %}-->
          <!--<div class="row" style="margin-bottom: 1ex">-->
@@ -172,5 +169,6 @@
          <!--{% endfor %}-->
       </div>
       <!-- /.container -->
+
    </body>
 </html>

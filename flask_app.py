@@ -69,7 +69,7 @@ class Attendance_Records(db.Model):
     )
     employee_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     employee = db.relationship("User", foreign_keys=employee_id)
-
+    ip_address = db.Column(db.String(45))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -80,8 +80,8 @@ def index():
 
     if not current_user.is_authenticated:
         return redirect(url_for("index"))
-
-    attendance_record = Attendance_Records(office=request.form["office"], employee=current_user)
+    ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+    attendance_record = Attendance_Records(office=request.form["office"], employee=current_user, ip_address=ip_address)
     db.session.add(attendance_record)
     db.session.commit()
     return redirect(url_for("index"))
