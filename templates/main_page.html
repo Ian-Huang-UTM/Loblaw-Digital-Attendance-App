@@ -20,6 +20,15 @@
         background-repeat: no-repeat;
         height: 100vh; /* Ensure the background covers the entire viewport height */
         }
+        .row div {
+    color: #fff; /* Set the desired text color */
+}
+        .form-group label {
+        font-family: 'Helvetica LT W05 Bold', 'Helvetica', sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #fff; /* Set the desired text color */
+        }
          .container {
          text-align: center;
 
@@ -45,14 +54,11 @@
          .section:hover {
          background-color: #e0e0e0;
          }
-         .h2 {
-         font-family: Helvetica LT W05 Bold,Helvetica,sans-serif;
-         letter-spacing: -.005em;
-         font-weight: 500;
-         font-size: 1.5em;
-         line-height: 1.1923076923;
-         margin-bottom: 30px;
-         color: #191919;
+         .form-group h2 {
+         font-family: 'Helvetica LT W05 Bold', 'Helvetica', sans-serif;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #fff; /* Set the desired text color */
          }
          .button {
          line-height: 1.5882352941;
@@ -127,9 +133,9 @@
          <div class="row">
         <form action="." method="POST">
             <div class="form-group">
-                <h2>Office Selection:</h2>
-                <input type="radio" name="office" value="Bathurst&Lakeshore">
-                <label for="Bathurst&Lakeshore">Bathurst & Lakeshore</label>
+                <h2>Office Selection</h2>
+                <input type="radio" name="office" value="Bathurst">
+                <label for="Bathurst">Bathurst</label>
                 <input type="radio" name="office" value="PCC">
                 <label for="PCC">PCC</label>
                 <input type="radio" name="office" value="Consumers Rd">
@@ -139,29 +145,29 @@
         </form>
     </div>
          {% endif %}
-         {% for attendance_record in attendance_records %}
-         <div class="row" style="margin-bottom: 1ex">
-            <div>
-               {{ attendance_record.employee.username }}
-            </div>
-            <div>
-               <small>
-               Checked in on
-               {% if attendance_record.checkin_date %}
-               {{ attendance_record.checkin_date.strftime("%A, %d %B %Y at %H:%M") }}
-               {% else %}
-               at an unknown time
-               {% endif %}
-               from
-               {% if attendance_record.employee %}
-               {{ attendance_record.office }}
-               {% else %}
-               unknown location
-               {% endif %}
-               </small>
-            </div>
-         </div>
-         {% endfor %}
+         <!--{% for attendance_record in attendance_records %}-->
+         <!--<div class="row" style="margin-bottom: 1ex">-->
+         <!--   <div>-->
+         <!--      {{ attendance_record.employee.username }}-->
+         <!--   </div>-->
+         <!--   <div>-->
+         <!--      <small>-->
+         <!--      Checked in on-->
+         <!--      {% if attendance_record.checkin_date %}-->
+         <!--      {{ attendance_record.checkin_date.strftime("%A, %d %B %Y at %H:%M") }}-->
+         <!--      {% else %}-->
+         <!--      at an unknown time-->
+         <!--      {% endif %}-->
+         <!--      from-->
+         <!--      {% if attendance_record.employee %}-->
+         <!--      {{ attendance_record.office }}-->
+         <!--      {% else %}-->
+         <!--      unknown location-->
+         <!--      {% endif %}-->
+         <!--      </small>-->
+         <!--   </div>-->
+         <!--</div>-->
+         <!--{% endfor %}-->
       </div>
       <!-- /.container -->
    </body>
