@@ -1,1 +1,1 @@
-mysql -u craigreed -p -h craigreed.mysql.pythonanywhere-services.com -e "select username, office, checkin_date from attendance_records a left join users b on a.employee_id = b.id" 'craigreed$attendance_records' > records.csv
+mysql -u craigreed -p -h craigreed.mysql.pythonanywhere-services.com -e "select username, office, checkin_date, ip_address from attendance_records a left join users b on a.employee_id = b.id" 'craigreed$attendance_records' > records.csv
