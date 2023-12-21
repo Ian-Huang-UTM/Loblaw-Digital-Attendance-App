@@ -1,6 +1,6 @@
 from datetime import datetime
 import pytz
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, redirect, render_template, request, url_for, Response
 from flask_login import (
     current_user,
     login_required,
@@ -108,3 +108,24 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for("index"))
+
+
+
+
+
+@app.route("/export", methods=["GET"])
+@login_required
+def export_records():
+    records = Attendance_Records.query.all()
+
+    # Convert records to a CSV string
+    csv_data = "username,office,checkin_date,ip_address\n"
+    for record in records:
+        csv_data += f"{record.employee.username},{record.office},{record.checkin_date},{record.ip_address}\n"
+
+    # Create a response with the CSV data
+    response = Response(csv_data, content_type="text/csv")
+    response.headers["Content-Disposition"] = "attachment; filename=attendance_records.csv"
+
+    return response
+
