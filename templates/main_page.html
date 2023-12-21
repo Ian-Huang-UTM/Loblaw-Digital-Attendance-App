@@ -19,7 +19,7 @@
   <a class="active" href="#home">Home</a>
   {% if current_user.is_authenticated %}
   <a href="{{ url_for('logout') }}">Log out</a>
-    {% if current_user.username == "craig" %}
+    {% if current_user.username == "craig" or current_user.username == "dmonard" %}
     <a href="{{ url_for('export_records') }}">Download</a>
     {% endif %}
 
