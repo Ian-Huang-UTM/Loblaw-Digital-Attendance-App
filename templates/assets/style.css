@@ -1,0 +1,135 @@
+/* Style the links inside the pill navigation menu */
+.pill-nav a {
+	display: inline-block;
+	color: black;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
+	font-size: 17px;
+	border-radius: 5px;
+}
+
+/* Change the color of links on mouse-over */
+.pill-nav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+/* Add a color to the active/current link */
+.pill-nav a.active {
+	background-color: dodgerblue;
+	color: white;
+}
+
+
+.btn {
+	line-height: 1.5882352941;
+	font-size: 1em;
+	padding: 8px 35px !important;
+	margin: 0;
+	display: inline-block;
+	border: 2px solid #191919;
+	border-radius: 3em;
+	font-family: Helvetica LT W05 Bold, Helvetica, sans-serif;
+	cursor: pointer;
+	transition: transition: all .3s ease;
+	color: #fff;
+	background-color: #191919;
+}
+
+.btn:hover {
+	background-color: #fff;
+	color: #191919;
+}
+
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Inter", sans-serif;
+
+	font-size: calc(1em + 1.25vw);
+	background-image: url('https://finlaysonpractice.ca/wp-content/uploads/2017/05/99AtlanticAve_4thFl_040.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+
+form {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+label {
+	display: flex;
+	cursor: pointer;
+	font-weight: 500;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 0.375em;
+	/* Accessible outline */
+	/* Remove comment to use */
+	/*
+    &:focus-within {
+        outline: .125em solid $primary-color;
+    }
+  */
+}
+
+label input {
+	position: absolute;
+	left: -9999px;
+}
+
+label input:checked+span {
+	background-color: #d6d6e5;
+}
+
+label input:checked+span:before {
+	box-shadow: inset 0 0 0 0.4375em #00005c;
+}
+
+label span {
+	display: flex;
+	align-items: center;
+	padding: 0.375em 0.75em 0.375em 0.375em;
+	border-radius: 99em;
+	transition: 0.25s ease;
+}
+
+label span:hover {
+	background-color: #d6d6e5;
+}
+
+label span:before {
+	display: flex;
+	flex-shrink: 0;
+	content: "";
+	background-color: #fff;
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 50%;
+	margin-right: 0.375em;
+	transition: 0.25s ease;
+	box-shadow: inset 0 0 0 0.125em #00005c;
+}
+
+.container {
+	position: absolute;
+	top: 60px;
+	/* Adjust this value based on your navbar height */
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
