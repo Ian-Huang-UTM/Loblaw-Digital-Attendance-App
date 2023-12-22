@@ -17,6 +17,7 @@
          {% if current_user.username == "craig" or current_user.username == "dmonard" %}
          <a href="{{ url_for('export_records') }}">Download</a>
          {% endif %}
+         <a>{% print("Hello, " + current_user.username.capitalize()) %}</a>
          {% else %}
          <a href="{{ url_for('login') }}">Log in</a>
          {% endif %}
