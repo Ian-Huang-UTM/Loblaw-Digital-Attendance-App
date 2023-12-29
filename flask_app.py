@@ -1,6 +1,6 @@
 from datetime import datetime
 import pytz
-from flask import Flask, redirect, render_template, request, url_for, Response
+from flask import Flask, flash, redirect, render_template, request, url_for, Response
 from flask_login import (
     current_user,
     login_required,
@@ -12,7 +12,6 @@ from flask_login import (
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash
-
 
 
 app = Flask(__name__)
@@ -71,6 +70,7 @@ class Attendance_Records(db.Model):
     employee = db.relationship("User", foreign_keys=employee_id)
     ip_address = db.Column(db.String(45))
 
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
@@ -80,11 +80,13 @@ def index():
 
     if not current_user.is_authenticated:
         return redirect(url_for("index"))
-    ip_address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
-    attendance_record = Attendance_Records(office=request.form["office"], employee=current_user, ip_address=ip_address)
+    ip_address = request.environ.get("HTTP_X_REAL_IP", request.remote_addr)
+    attendance_record = Attendance_Records(
+        office=request.form["office"], employee=current_user, ip_address=ip_address
+    )
     db.session.add(attendance_record)
     db.session.commit()
-    return redirect(url_for("index"))
+    return redirect(url_for("index")), flash("You have successfully checked in.")
 
 
 @app.route("/login/", methods=["GET", "POST"])
@@ -110,9 +112,6 @@ def logout():
     return redirect(url_for("index"))
 
 
-
-
-
 @app.route("/export", methods=["GET"])
 @login_required
 def export_records():
@@ -125,7 +124,8 @@ def export_records():
 
     # Create a response with the CSV data
     response = Response(csv_data, content_type="text/csv")
-    response.headers["Content-Disposition"] = "attachment; filename=attendance_records.csv"
+    response.headers[
+        "Content-Disposition"
+    ] = "attachment; filename=attendance_records.csv"
 
     return response
-

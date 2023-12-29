@@ -23,6 +23,14 @@
          {% endif %}
       </div>
       <div class="container">
+         {% with messages = get_flashed_messages() %}
+         {% if messages %}
+         <div class="flashes">
+            {% for message in messages %}
+            <div class="flash">{{ message }}</div>
+            {% endfor %}
+         </div>
+         {% else %}
          {% if current_user.is_authenticated %}
          <form action="." method="POST">
             <label>
@@ -43,6 +51,8 @@
          <div id="openweathermap-widget-11"></div>
          <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 11,cityid: '6167865',appid: '1ecdb805589e03d4172d0f84df322298',units: 'metric',containerid: 'openweathermap-widget-11',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
          {% endif %}
+         {% endif %}
+         {% endwith %}
       </div>
    </body>
 </html>
